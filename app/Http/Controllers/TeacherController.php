@@ -163,7 +163,8 @@ class TeacherController extends Controller
         $user_teacher = $id_activity->teacher()->get()->first();
         $teacher_id = $user_teacher -> id;
         $activities = $user_teacher->activities()->get();
-        return view('activity/showActivity', ['activity' => $id_activity, 'teacher' => $user_teacher, 'discipline_model' => $discipline]);
+        $responses = $id_activity->activity_response()->get();
+        return view('activity/showActivity', ['activity' => $id_activity, 'teacher' => $user_teacher, 'discipline_model' => $discipline, 'responses' => $responses]);
     }
     public function editActivity(Activity $id_activity, Discipline $discipline_model){
         $disciplines = Discipline::all();

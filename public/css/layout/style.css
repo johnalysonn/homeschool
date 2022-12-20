@@ -8,7 +8,7 @@
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    -webkit-font-smoothing: antialiased;
+    /* -webkit-font-smoothing: antialiased; */
     overflow-x: hidden;
 }
 h1, h2, h3, h4, h5, p{
@@ -494,8 +494,10 @@ footer div div img{
 
 #sidebar{
     position: fixed;
+    font-family: 'Poppins', sans-serif;
     height: 100vh;
-    background-color: gray;
+    background-color: black;
+    color: white;
     top: 0;
     right: 0;
     display: flex;
@@ -504,7 +506,6 @@ footer div div img{
 #sidebar-response{
     position: relative;
     height: 100vh;
-    background-color: gray;
     top: 0;
     right: 0;
     display: flex;
@@ -518,7 +519,7 @@ footer div div img{
     align-items: center;
 }
 #container-responses{
-    width: 300px;
+    width: 400px;
     display: flex;
     transition: .15s all;
 }
@@ -536,11 +537,44 @@ footer div div img{
     min-width: 300px;
     font-size: 1.8em;
     font-weight: bold;
-    font-family: 'Lato', sans-serif;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
+    letter-spacing: 2px;
 }
-
-
+.card-main-response{
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+    gap: 20px;
+}
+.card-response{
+    display: flex;
+    min-width: 300px;
+    flex-direction: column;
+    border-radius: 20px;
+    padding: 10px 20px;
+    box-shadow: 0px 0px 15px 10px rgba(53, 51, 51, 0.25);
+}
+.card-response .div-number{
+    font-size: 1.2em;
+}
+.card-response .first-div-response{
+    display: flex;
+    justify-content: space-between;
+}
+.card-response .first-div-response i{
+    font-size: 1.3em;
+}
+#container-cards-responses{
+    /* background-color: red; */
+    padding: 20px;
+}
+.div-download{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
 
 
 

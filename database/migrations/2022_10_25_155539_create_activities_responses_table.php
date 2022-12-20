@@ -16,7 +16,7 @@ class CreateActivitiesResponsesTable extends Migration
         Schema::create('activities_responses', function (Blueprint $table) {
             $table->foreignId('activity_id');
             $table->foreignId('student_id');
-            $table->boolean('check')->nullable();
+            $table->boolean('check')->default(0);
             $table->integer('note')->nullable();
             $table->string('filepath');
             $table->text('description')->nullable();

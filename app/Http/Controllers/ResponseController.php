@@ -46,8 +46,8 @@ class ResponseController extends Controller
             $act_response->activity_id = $id_activity -> id;
             $act_response->student_id = $user_student->id;
             $act_response->filepath = $file->store('responses/'.$id_activity->id);
-            if($request->description){
-                $act_response ->description = $request->description;
+            if($request->coment){
+                $act_response ->description = $request->coment;
             }
             $act_response->save();
 
