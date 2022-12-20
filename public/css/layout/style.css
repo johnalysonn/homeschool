@@ -1,0 +1,548 @@
+/* Importando fontes */
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap');
+/* Header */
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+}
+h1, h2, h3, h4, h5, p{
+    overflow-y: hidden;
+}
+header{
+    height: 20vh;
+    font-family:  'Roboto', sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav{
+    width: 100vw;
+}
+nav div{
+    display: flex;
+    justify-content: space-between;
+    padding: 10px;
+}
+header img{
+    width: 150px;
+    margin-left: 30px;
+}
+nav ul{
+    display: flex;
+    gap: 05px;
+}
+nav ul .a-awesome i {
+    font-size: 30px;
+    transform: translateY(-15%);
+}
+nav ul li a{
+    font-family: 'Lato', sans-serif;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: .5px;
+}
+li .before{
+    position: relative;
+}
+li .before::before{
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0%;
+    height: 2px;
+    background-color: black;
+    transition: .60s ease;
+}
+.before:hover::before{
+    width: 100%;
+}
+
+/* Mensagem */
+.msg{
+    font-family: 'Poppins', sans-serif;
+    background-color: white;
+    color: #c0bfbf;
+    display: block;
+    position: absolute;
+    z-index: 1;
+    left: 50%;
+    margin-top: 20px;
+    transform: translateX(-50%);
+    width: 250px;
+    padding: 5px;
+    text-align: center;
+    border-radius: 30px;
+    box-shadow: 1px 1px 10px rgb(167, 164, 164);
+    font-family: Arial, Helvetica, sans-serif;
+    transition: 0.5s linear;
+    font-size: 0.9em;
+}
+.circle{
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    clip-path: circle(50% at bottom right);
+    background-color: #000000;
+}
+
+/* Home */
+#container-home{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+#container-home-info{
+    justify-content: space-between;
+    margin-top: 30px;
+    font-family: 'Roboto', sans-serif;
+    padding: 20px;
+}
+
+#container-home-info #container-info{
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+    padding: 35px;
+    transform: translateY(-20%);
+}
+#container-home-info #container-info h1{
+    font-weight: bold;
+    font-size: 45px;
+    font-family: 'Poppins', sans-serif;
+    overflow-y: hidden;
+}
+#container-home-info #container-info label p{
+    font-size: 1.3em;
+    margin: 0;
+    text-align: center;
+}
+
+#container-home-info #container-info-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+    transform: translateY(-20%);
+}
+#container-dash-img{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 300px;
+}
+
+/* Home - sessão dos cards */
+#container-cards{
+    position: relative;
+    flex-direction: column;
+    gap: calc(100%/6);
+    background-color: #F5F5F5;
+    max-width: 100vw;
+    height: 100vh;
+    padding: 100px;
+}
+#container-cards .cards{
+    justify-content: center;
+    align-items: center;
+    gap: 30px ;
+    background-color: white;
+    max-width: 100vw;
+    height: 200px;
+    font-size: 1.1em;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    padding: 20px 50px;
+    border-radius: 20px;
+    box-shadow: 1px 1px 10px gray;
+}
+#container-cards .cards:nth-child(1){
+    transform: translateX(10%);
+    width: calc(100%/2.4);
+}
+#container-cards .cards:nth-child(2){
+    transform: translateX(125%);
+    width: calc(100%/2.4);
+}
+/* Footer */
+footer{
+    background-color: #EFEFEF;
+    max-width: 100vw;
+    height: 100px;
+}
+footer #container-footer{
+    max-width: 100vw;
+    min-height: 100%;
+    position: relative;
+}
+footer #container-footer #container-footer-img {
+    width: 20%;
+    min-height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+footer #container-footer #container-footer-copy{
+    width: 80%;
+    max-height: 100%;
+    font-family: 'Roboto', sans-serif;
+    color: #5C5C5C;
+}
+footer #container-footer #container-footer-copy p{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+footer div div img{
+    width: 100px;
+}
+/* #container-main{
+    height: vh;
+} */
+/* Exibindo dados */
+
+
+.container-info-user{
+    flex-direction: row;
+    gap: 20px;
+    font-size: 1.5em;
+    font-family: 'Poppins', sans-serif;
+}
+.container-info .user{
+    margin-bottom: 20px;
+}
+#button-show-users{
+    color: black;
+    outline: none;
+    width: 100px;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    padding: 5px 15px;
+    text-decoration: none;
+}
+#button-show-users:hover{
+    border: 1px solid #787878;
+    color: #5C5C5C;
+    transition: 0.15s all;
+}
+
+/* Lista de users */
+#container-table-main{
+    height: 80vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 30px;
+    font-family: 'Poppins', sans-serif;
+}
+#container-user-add{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container-user-add a{
+    text-decoration: none;
+    color: black;
+    color: black;
+    outline: none;
+    width: 100px;
+    border: 1px solid black;
+    background-color: transparent;
+    border-radius: 20px;
+    text-decoration: none;
+    width: 200px;
+    outline: none;
+}
+#container-user-add a:hover{
+    border-color: #5C5C5C;
+    color: #464646;
+}
+
+#container-table{
+    box-shadow: 1px 0 5px gray;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+}
+#edit-btn-show{
+    color: black;
+    outline: none;
+    width: 100px;
+    border: 1px solid blue;
+    background-color: transparent;
+    border-radius: 20px;
+    text-decoration: none;
+    font-family: 'Roboto', sans-serif;
+
+}
+#delete-btn-show{
+    color: black;
+    outline: none;
+    width: 100px;
+    border: 1px solid red;
+    background-color: transparent;
+    border-radius: 20px;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+}
+#edit-btn-show:hover{
+    border-color: rgb(13, 13, 129);
+    color: rgb(39, 39, 83);
+}
+#delete-btn-show:hover{
+    border-color: rgb(156, 15, 15);
+    color: rgb(39, 39, 83);
+}
+
+/* Lista de usuário como alunos */
+
+#errorCad{
+    width: 100%;
+    height: 50px;
+    box-shadow: 1px 0 5px gray;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 20px;
+    font-size: 1.2em;
+}
+
+/* Exibindo atividades */
+.container-center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 80vh;
+    width: 100%;
+    font-size: 1.3em;
+
+}
+.hiper-message-name{
+    font-size: 1.6em;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 3.2px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.hiper-message{
+    font-size: 1.2em;
+    font-family: 'Lato', sans-serif;
+    font-weight: 600;
+    margin-bottom: 30px;
+}
+#container-name-atv{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container-info-atv{
+    min-width: 100vw;
+    display: flex;
+    justify-content: space-around;
+}
+#column-inf{
+    height: 100%;
+    gap: 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+#container-button-atv{
+    max-width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 20px;
+}
+#container-button-atv a{
+    text-decoration: none;
+    color: black;
+    font-family: 'Roboto', sans-serif;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 3px 20px;
+    border: 2px solid black;
+    background-color: transparent;
+    border-radius: 30px;
+    font-size: 1.1rem;
+}
+#container-button-atv a:hover{
+    border-color: #5C5C5C;
+    color: rgb(59, 59, 59);
+}
+
+/* Listando atividades */
+
+#activity-container{
+    min-width: 100vw;
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+}
+#activity-container h1{
+    font-family: 'Lato', sans-serif;
+    overflow-y: hidden;
+    margin-left: 2%;
+    position: relative;
+    padding-bottom: 30px;
+
+    font-size: 1.8em;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+#activity-container h1::after{
+    content: '';
+    position: absolute;
+    width: calc(100%/4);
+    height: 4px;
+    bottom: 0;
+    left: 0;
+    background-color: black;
+}
+#cards-container{
+    padding: 5px 20px;
+    gap: 30px 50px;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+#cards-container .card{
+    padding: 10px 30px;
+    border-radius: 20px;
+    box-shadow: 1px 0 5px gray;
+}
+.card-body{
+    padding: 0;
+    padding: 10px;
+}
+.card h3{
+    overflow-y: hidden;
+}
+.card #container-card-name{
+    width: 100%;
+    text-align: center;
+}
+.card .card-date{
+    font-size: 12px;
+    color: rgb(136, 136, 136);
+}
+.card .card-teacher{
+    font-size: 12px;
+    color: rgb(136, 136, 136);
+}
+
+.card .card-title{
+    color: #212121;
+    font-size: 20px;
+    font-weight: bold;
+    margin-bottom: 30px;
+}
+.card .card-discipline{
+    font-size: 12px;
+    color: rgb(136, 136, 136);
+}
+
+.card .btn{
+    outline: none;
+    margin-top: 10px;
+    width: 100%;
+    background-color: transparent;
+    color: black;
+    border: 2px solid black;
+    border-radius: 20px;
+}
+.card .btn:hover{
+    border-color: #5C5C5C;
+    color: #5C5C5C;
+    transition: 0.10s all;
+}
+#activity-container label{
+    position: relative;
+}
+#card-buttom-actions{
+    width: 100%;
+}
+.msgActivity{
+    margin: 0;
+    width: 100%;
+    padding: 20px;
+    font-size: 1.4em;
+    letter-spacing: 1px;
+    font-family: 'Lato', sans-serif;
+}
+/* Container respostas alunos */
+
+#sidebar{
+    position: fixed;
+    height: 100vh;
+    background-color: gray;
+    top: 0;
+    right: 0;
+    display: flex;
+    z-index: 1;
+}
+#sidebar-response{
+    position: relative;
+    height: 100vh;
+    background-color: gray;
+    top: 0;
+    right: 0;
+    display: flex;
+}
+#container-arrow{
+    height: 100vh;
+    padding: 20px;
+    font-size: 1.5em;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+#container-responses{
+    width: 300px;
+    display: flex;
+    transition: .15s all;
+}
+#container-responses #div-close{
+    font-size: 1.5em;
+    padding: 20px;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+}
+#container-title-responses{
+    min-width: 300px;
+    font-size: 1.8em;
+    font-weight: bold;
+    font-family: 'Lato', sans-serif;
+    text-align: center;
+}
+
+
+
+
+
+
+
