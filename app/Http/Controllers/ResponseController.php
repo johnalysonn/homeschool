@@ -41,7 +41,6 @@ class ResponseController extends Controller
         $user_student = Auth::guard('student')->user();
         for($i = 0; $i < count($request->allFiles()['file_response']); $i++){
             $file = $request->allFiles()['file_response'][$i];
-
            $act_response = new Activity_Response();
             $act_response->activity_id = $id_activity -> id;
             $act_response->student_id = $user_student->id;
@@ -102,5 +101,21 @@ class ResponseController extends Controller
     public function destroy($id)
     {
         //
+    }
+    public function updateCheck(Activity_Response $id_response, $check_code){
+        $response_update_check = $id_response->update([
+            'check' => $check_code,
+        ]);
+        if($response_update_check){
+            if($id_response -> check == 0){
+                return back()->with('msg', 'Visto adicionado com sucesso');
+            }else{
+
+                return back()->with('msg', 'Visto retirado com sucesso');
+            }
+        }
+    }
+    public function download(Activity_Response $id_response){
+
     }
 }

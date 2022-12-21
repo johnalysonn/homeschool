@@ -513,7 +513,7 @@ footer div div img{
 }
 #container-arrow{
     height: 100vh;
-    padding: 30px;
+    padding: 0px 5px;
     font-size: 1.5em;
     display: flex;
     justify-content: center;

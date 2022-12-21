@@ -31,7 +31,7 @@ Route::get('/dashboard', [TeacherController::class, 'dashboard'])->name('dashboa
     Route::get('/home/createActivity', [TeacherController::class, 'createActivity'])->name('createActivity');
     Route::post('/home/storeActivity', [TeacherController::class, 'storeActivity'])->name('storeActivity');
     Route::get('/home/listActivities', [TeacherController::class, 'listActivities'])->name('listActivities');
-    Route::get('/home/activity/{id_activity}', [TeacherController::class, 'showActivity'])->name('showActivity');
+    Route::get('/home/activity/{id_activity?}', [TeacherController::class, 'showActivity'])->name('showActivity');
     Route::get('/home/activity/edit/{id_activity}', [TeacherController::class, 'editActivity'])->name('editActivity');
     Route::put('/home/activity/update/{id_activity}', [TeacherController::class, 'updateActivity'])->name('updateActivity');
     Route::delete('/home/activity/delete/{id_activity}', [TeacherController::class, 'destroyActivity'])->name('deleteActivity');
@@ -60,5 +60,8 @@ Route::delete('/home/disciplines/delete/{id}', [DisciplineController::class, 'de
 
 Route::get('/home/activity/response/create/{id_activity}', [ResponseController::class, 'create'])->name('createResponse');
 Route::post('/home/activity/response/store/{id_activity}', [ResponseController::class, 'store'])->name('storeResponse');
+Route::get('/home/response/status/{id_response}/{check_code}', [ResponseController::class, 'updateCheck'])->name('updateCheck');
+Route::get('/home/response/download/{id_response}', [ResponseController::class, 'download'])->name('download');
+
 
 

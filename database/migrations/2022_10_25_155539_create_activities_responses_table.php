@@ -14,6 +14,7 @@ class CreateActivitiesResponsesTable extends Migration
     public function up()
     {
         Schema::create('activities_responses', function (Blueprint $table) {
+            $table->id();
             $table->foreignId('activity_id');
             $table->foreignId('student_id');
             $table->boolean('check')->default(0);

@@ -7,7 +7,6 @@
     <div id="sidebar-response" class="ocult">
         <div id="container-arrow">
             <div id="container-arrow-main">
-
                 <i class="fa-solid fa-circle-arrow-right" id="arrow" ></i>
             </div>
         </div>
@@ -25,7 +24,12 @@
                                 <b>{{$loop->index + 1}}</b>
                             </p>
                             <p>
-                                <i class="fa-solid fa-check" style="color: green;"></i>
+                                @if ($response->check===0)
+                                    <a href="/home/response/status/{{$response->id}}/{{1}}" style="text-decoration: none; color: white;">Visto</a>
+                                @else
+                                    <a href="/home/response/status/{{$response->id}}/{{0}}"><i class="fa-solid fa-check" style="color: green;"></i></a>
+                                @endif
+
                             </p>
                         </div>
                         <div>
@@ -34,7 +38,7 @@
                             <div class="div-download">
                                 <p><b>Arquivos: </b>  {{$response->filepath}}</p>
                                 <p class="p-down">
-                                    <a href="#"><i class="fa-solid fa-arrow-down" style="color: red;"></i></a>
+                                    <a href="/home/response/download/{{$response->id}}"><i class="fa-solid fa-arrow-down" style="color: red;"></i></a>
                                 </p>
                             </div>
                         </div>
