@@ -4,60 +4,48 @@
 
 @if (Auth::guard('teacher')->check()==true || Auth::guard('admin')->check()==true)
 <div id="sidebar">
-    <div id="sidebar-response">
+    <div id="sidebar-response" class="ocult">
         <div id="container-arrow">
             <div id="container-arrow-main">
-                {{-- <i class="fa-solid fa-arrow-left" id="arrow" ></i> --}}
+
+                <i class="fa-solid fa-circle-arrow-right" id="arrow" ></i>
             </div>
         </div>
         <div id="container-responses">
-            <div id="div-close">
-                {{-- <i class="fa-solid fa-arrow-right"></i> --}}
-            </div>
             <div id="container-cards-responses">
                 <div id="container-title-responses">
                     <p>Respostas</p>
                 </div>
                 <div class="card-main-response">
-                    {{-- @foreach ($responses as $response)
-                    <div class="card-response">
-                        <div class="first-div-response">
-                            <p>
-                                {{$loop->index + 1}}
-                            </p>
-                            <p>
-                                <i class="fa-solid fa-check" style="color: green;"></i>
-                            </p>
-                        </div>
-                        <div>
-                            <p><b>Aluno:</b> {{$response->student()->get()->first()->name}}</p>
-                            @if ($response->description)
-                            <p><b>Observação:</b> {{$response->description}}</p>
-                            @endif
-                            <p><b>Arquivos:</b> {{$response->filepath}}</p>
-                        </div>
-                    </div>
-                    @endforeach --}}
+                    @if (count($responses)>0)
+                    @foreach ($responses as $response)
                     <div class="card-response">
                         <div class="first-div-response">
                             <p class="div-number">
-                                <b> 1</b>
+                                <b>{{$loop->index + 1}}</b>
                             </p>
                             <p>
                                 <i class="fa-solid fa-check" style="color: green;"></i>
                             </p>
                         </div>
                         <div>
-                            <p><b>Aluno: </b> John</p>
-                            <p><b>Observação: </b> Gostei muito!</p>
+                            <p><b>Aluno: </b> {{$response->student()->get()->first()->name}}</p>
+                            <p><b>Observação: </b> {{$response->description}}</p>
                             <div class="div-download">
-                                <p><b>Arquivos: </b>  Resposta1.pdf</p>
+                                <p><b>Arquivos: </b>  {{$response->filepath}}</p>
                                 <p class="p-down">
                                     <a href="#"><i class="fa-solid fa-arrow-down" style="color: red;"></i></a>
                                 </p>
                             </div>
                         </div>
                     </div>
+                    @endforeach
+                    @else
+                    <div id="message-error-response">
+                        <p>Nenhum aluno respondeu!</p>
+                    </div>
+                    @endif
+
                 </div>
             </div>
         </div>
@@ -109,4 +97,17 @@
         </div>
 
 </div>
+<script>
+    var arrow = document.querySelector("#arrow");
+    var container = document.querySelector("#sidebar-response");
+
+    arrow.onclick = e =>{
+        if(!container.classList.contains('ocult')){
+            container.classList.add('ocult');
+        }else{
+            container.classList.remove('ocult');
+        }
+    }
+</script>
 @endsection
+
