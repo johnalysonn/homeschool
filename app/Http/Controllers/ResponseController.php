@@ -7,6 +7,7 @@ use App\Models\Activity_Response;
 use App\Models\Discipline;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Storage;
 
 class ResponseController extends Controller
 {
@@ -41,7 +42,7 @@ class ResponseController extends Controller
         $user_student = Auth::guard('student')->user();
         for($i = 0; $i < count($request->allFiles()['file_response']); $i++){
             $file = $request->allFiles()['file_response'][$i];
-           $act_response = new Activity_Response();
+            $act_response = new Activity_Response();
             $act_response->activity_id = $id_activity -> id;
             $act_response->student_id = $user_student->id;
             $act_response->filepath = $file->getClientOriginalName();
@@ -116,6 +117,10 @@ class ResponseController extends Controller
         }
     }
     public function download(Activity_Response $id_response){
-
+        $id_activity = $id_response->activity()->get()->first()->id;
+        $file = Storage::allFiles('responses/'.$id_activity)[$id_response->id-1];
+        $part_filename = explode("/", $file);
+        $file_name =  $part_filename[count($part_filename)-1];
+        return Storage::download('responses/'.$id_activity.'/'.$file_name);
     }
 }

@@ -25,7 +25,7 @@
                             </p>
                             <p>
                                 @if ($response->check===0)
-                                    <a href="/home/response/status/{{$response->id}}/{{1}}" style="text-decoration: none; color: white;">Visto</a>
+                                    <a href="/home/response/status/{{$response->id}}/{{1}}" style="text-decoration: none; color: white;">Check</a>
                                 @else
                                     <a href="/home/response/status/{{$response->id}}/{{0}}"><i class="fa-solid fa-check" style="color: green;"></i></a>
                                 @endif
