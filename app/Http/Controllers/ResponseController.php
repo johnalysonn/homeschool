@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Activity;
 use App\Models\Activity_Response;
 use App\Models\Discipline;
+use Facade\FlareClient\Http\Response;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Storage;
@@ -122,5 +123,18 @@ class ResponseController extends Controller
         $part_filename = explode("/", $file);
         $file_name =  $part_filename[count($part_filename)-1];
         return Storage::download('responses/'.$id_activity.'/'.$file_name);
+    }
+    public function addNote(Activity_Response $id_response, Request $request){
+        dd($request->all());
+        if($request->note){
+            $id_response -> note = $request->note;
+
+            $id_response -> save();
+            return back()->with('msg', 'Nota aderida com sucesso!');
+        }
+        else{
+            return back()->with('msg', 'ERRO! Nenhum dado detectado!');
+        }
+        
     }
 }

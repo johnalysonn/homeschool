@@ -11,7 +11,7 @@
                             <th scope="col">#</th>
                             <th scope="col">Nome</th>
                             <th scope="col">Email</th>
-                            @if(Auth::guard('teacher')->check())
+                            @if(!Auth::guard('student')->check())
                                 <th scope="col">Status</th>
                                 <th scope="col">Ações</th>
                             @endif

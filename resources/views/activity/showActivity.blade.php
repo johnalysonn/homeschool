@@ -35,9 +35,9 @@
                         <div>
                             <p class="d-flex" style="justify-content: space-between;  text-align:center;">
                                 <label><b>Aluno: </b> {{$response->student()->get()->first()->name}}</label>
-                                <select name="note" id="input-note" style="transform: translateY(-10%)" onchange="noteChange()">
+                                <select name="note" id="input-note" style="transform: translateY(-10%)">
                                     <option value="note" selected disabled>Nota</option>
-                                    <option value="0">0</option><option value="1">1</option>
+                                    <option value="0" >0</option><option value="1">1</option>
                                     <option value="2">2</option><option value="3">3</option>
                                     <option value="4">4</option><option value="5">5</option>
                                     <option value="6">6</option><option value="7">7</option>
@@ -53,7 +53,10 @@
                                 </p>
                             </div>
                             <div id="container-button-note">
-                                <input type="submit" class="d-none" value="Salvar">
+                                <form action="/home/response/note/{{$response->id}}" method="post">
+                                    @csrf
+                                    <input type="submit" value="Aderir nota">
+                                </form>
                             </div>
                         </div>
                     </div>
@@ -116,28 +119,14 @@
 
 </div>
 <script>
-    var arrow = document.querySelector("#arrow");
-    var container = document.querySelector("#sidebar-response");
-
-
+    let arrow = document.querySelector("#arrow");
+    let container = document.querySelector("#sidebar-response");
     arrow.onclick = e =>{
         if(!container.classList.contains('ocult')){
             container.classList.add('ocult');
         }else{
             container.classList.remove('ocult');
         }
-    }
-    function noteChange(){
-        var note = document.querySelector('#input-note').value;
-        var container_note = document.querySelector('#container-button-note');
-
-        if(note !== '0'){
-        if(!container_note.classList.contains('d-none')){
-            container_note.classList.add('d-none');
-        }else{
-            container_note.classList.remove('d-none');
-        }
-    }
     }
 </script>
 @endsection

@@ -62,6 +62,8 @@ Route::get('/home/activity/response/create/{id_activity}', [ResponseController::
 Route::post('/home/activity/response/store/{id_activity}', [ResponseController::class, 'store'])->name('storeResponse');
 Route::get('/home/response/status/{id_response}/{check_code}', [ResponseController::class, 'updateCheck'])->name('updateCheck');
 Route::get('/home/response/download/{id_response}', [ResponseController::class, 'download'])->name('download');
+Route::post('/home/response/note/{id_response}', [ResponseController::class, 'addNote'])->name('addNote');
+
 
 
 

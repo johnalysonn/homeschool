@@ -502,7 +502,7 @@ footer div div img{
     right: 0;
     display: flex;
     z-index: 1;
-    transition: .3s;
+    transition: .15s all!important;
 }
 #sidebar-response{
     position: relative;
@@ -510,6 +510,8 @@ footer div div img{
     top: 0;
     right: 0;
     display: flex;
+    transition: .15s ease;
+
 }
 #container-arrow{
     height: 100vh;
@@ -581,7 +583,7 @@ footer div div img{
 }
 .ocult #container-responses{
     display: none;
-    transition: all 0.5s ease;
+    
 }
 .ocult #container-arrow{
     display: fixed !important;
@@ -617,11 +619,18 @@ footer div div img{
     align-items: center;
 }
 #container-button-note input{
-    width: calc(100%/2);
+    width: 100%;
     border-radius: 20px;
+    padding: 2px 10px;
     background-color: transparent;
     outline: none;
     border: none;
     border: 1px solid #ffffff;
     color: white;
+}
+.hidden{
+    transition: .15s all ease;
+}
+.hidden input{
+    display: none;
 }
