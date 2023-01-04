@@ -40,26 +40,26 @@ class StudentController extends Controller
             $student -> name = $request->name;
             $student -> email = $request->email;
             $student -> password = bcrypt($request->password);
-        
+
             $student -> save();
-            
+
             return redirect()->route('home')->with('msg', 'Aluno criado!!');
         }else if(Auth::guard('teacher')->check()){
             $student -> name = $request->name;
             $student -> email = $request->email;
             $student -> password = bcrypt($request->password);
-        
+
             $student -> save();
-            
+
             return redirect()->route('home')->with('msg', 'Aluno criado!!');
         }
         else if(Auth::guard('admin')->check()){
             $student -> name = $request->name;
             $student -> email = $request->email;
             $student -> password = bcrypt($request->password);
-        
+
             $student -> save();
-            
+
             return redirect()->route('home')->with('msg', 'Aluno criado!!');
         }
         else{
@@ -76,12 +76,12 @@ class StudentController extends Controller
     }
     public function loginStudent(Request $request){
         $credentials = $request -> validate([
-            'email' => ['required', 'email'], 
+            'email' => ['required', 'email'],
             'password' => ['required'],
         ]);
         if(Auth::guard('student')->attempt($credentials)){
             $request->session()->regenerate();
-            
+
             return redirect()->route('home')->with('msg', 'Aluno logado!');
         }
          return redirect()->route('formLoginStudent')->with('msg', 'Erro ao efetuar o login!');
@@ -124,7 +124,7 @@ class StudentController extends Controller
         $student -> name = $request->name;
         $student -> email = $request->email;
         $student -> password = bcrypt($request->password);
-        
+
         $student->update();
 
         return redirect()->route('home')->with('msg', 'Aluno editado com sucesso!!');

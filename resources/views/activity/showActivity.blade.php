@@ -32,32 +32,48 @@
 
                             </p>
                         </div>
+
                         <div>
-                            <p class="d-flex" style="justify-content: space-between;  text-align:center;">
-                                <label><b>Aluno: </b> {{$response->student()->get()->first()->name}}</label>
-                                <select name="note" id="input-note" style="transform: translateY(-10%)">
-                                    <option value="note" selected disabled>Nota</option>
-                                    <option value="0" >0</option><option value="1">1</option>
-                                    <option value="2">2</option><option value="3">3</option>
-                                    <option value="4">4</option><option value="5">5</option>
-                                    <option value="6">6</option><option value="7">7</option>
-                                    <option value="8">8</option><option value="9">9</option>
-                                    <option value="10">10</option>
-                                </select>
-                            </p>
-                            <p><b>Observação: </b> {{$response->description}}</p>
-                            <div class="div-download">
-                                <p><b>Arquivos: </b>  {{$response->filepath}}</p>
-                                <p class="p-down">
-                                    <a href="/home/response/download/{{$response->id}}"><i class="fa-solid fa-arrow-down" style="color: red;"></i></a>
+                            <form action="/home/response/note/{{$response->id}}" method="post">
+                                <p class="d-flex" style="justify-content: space-between;  text-align:center;">
+                                    <label><b>Aluno: </b> {{$response->student()->get()->first()->name}}</label>
+                                    {{-- <input type="number" placeholder="Nota" name="note" id="input-note" style="transform: translateY(-10%)"> --}}
+                                    @if ($response->note)
+                                    <select name="note" id="input-note" style="transform: translateY(-10%)">
+                                        <option value="note" disabled>Nota</option>
+                                        <option value="0" {{($response->note === 0 ? 'selected' : '')}}>0</option><option value="1" {{($response->note === 1 ? 'selected' : '')}}>1</option>
+                                        <option value="2" {{($response->note === 2 ? 'selected' : '')}}>2</option><option value="3" {{($response->note === 3 ? 'selected' : '')}}>3</option>
+                                        <option value="4" {{($response->note === 4 ? 'selected' : '')}}>4</option><option value="5" {{($response->note === 5 ? 'selected' : '')}}>5</option>
+                                        <option value="6" {{($response->note === 6 ? 'selected' : '')}}>6</option><option value="7" {{($response->note === 7 ? 'selected' : '')}}>7</option>
+                                        <option value="8" {{($response->note === 8 ? 'selected' : '')}}>8</option><option value="9" {{($response->note === 9 ? 'selected' : '')}}>9</option>
+                                        <option value="10" {{($response->note === 10 ? 'selected' : '')}}>10</option>
+                                    </select>
+                                    @else
+                                    <select name="note" id="input-note" style="transform: translateY(-10%)">
+                                        <option value="note" selected disabled>Nota</option>
+                                        <option value="0">0</option><option value="1">1</option>
+                                        <option value="2">2</option><option value="3">3</option>
+                                        <option value="4">4</option><option value="5">5</option>
+                                        <option value="6">6</option><option value="7">7</option>
+                                        <option value="8">8</option><option value="9">9</option>
+                                        <option value="10">10</option>
+                                    </select>
+                                    @endif
                                 </p>
-                            </div>
-                            <div id="container-button-note">
-                                <form action="/home/response/note/{{$response->id}}" method="post">
-                                    @csrf
-                                    <input type="submit" value="Aderir nota">
-                                </form>
-                            </div>
+                                <p><b>Observação: </b> {{$response->description}}</p>
+                                <div class="div-download">
+                                    <p><b>Arquivos: </b>  {{$response->filepath}}</p>
+                                    <p class="p-down">
+                                        <a href="/home/response/download/{{$response->id}}"><i class="fa-solid fa-arrow-down" style="color: red;"></i></a>
+                                    </p>
+                                </div>
+                                <div id="container-button-note">
+
+                                        @csrf
+                                        <input type="submit" value="Aderir nota">
+
+                                </div>
+                            </form>
                         </div>
                     </div>
                     @endforeach

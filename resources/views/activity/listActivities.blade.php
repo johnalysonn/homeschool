@@ -55,7 +55,7 @@
                     <h3>{{$activity->name}}</h3>
                 </div>
                 <div class="card-body">
-                    <div >
+                    <div>
                         <div class="card-body">
                             <p class="card-date">Criado em: {{($activity->created_at)->format('d/m/Y')}}</p>
                             <p class="card-teacher">Professor: {{$activity->teacher()->get()->first()->name}}</p>

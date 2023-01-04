@@ -145,6 +145,7 @@ class TeacherController extends Controller
         return redirect()->route('listActivities')->with('msg', 'Atividade criada com sucesso!');
     }
     public function listActivities(Discipline $discipline, Teacher $teacher_model){
+
         if(Auth::guard('teacher')->check()){
             $user_teacher = Auth::guard('teacher')->user();
             $teacher = Teacher::findOrFail($user_teacher->id);

@@ -125,7 +125,7 @@ class ResponseController extends Controller
         return Storage::download('responses/'.$id_activity.'/'.$file_name);
     }
     public function addNote(Activity_Response $id_response, Request $request){
-        dd($request->all());
+        // dd($request->all());
         if($request->note){
             $id_response -> note = $request->note;
 
@@ -133,8 +133,7 @@ class ResponseController extends Controller
             return back()->with('msg', 'Nota aderida com sucesso!');
         }
         else{
-            return back()->with('msg', 'ERRO! Nenhum dado detectado!');
+            return back()->with('msg', 'Erro! Adicione uma nota!');
         }
-        
     }
 }
