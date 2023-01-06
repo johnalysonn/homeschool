@@ -2,8 +2,9 @@
 @section('title', 'Listagem de usuários')
 @section('content')
 <div class="container" id="container-table-main">
-    <div id="container-table" class="container">
+    <div id="container-table" class="container d-flex" style="flex-direction:column; gap: 30px;">
         @if(count($teachers) > 0)
+            <div class="title-type-user"><h1>Lista de professores</h1></div>
             <table class="table">
                     <thead>
                         <tr>
@@ -18,7 +19,7 @@
                     <tbody>
                         @foreach($teachers as $teacher)
                     <tr>
-                        <th scope="row">{{$loop->index + 1}}</th>
+                        <th scope="row">{{$teacher->id}}</th>
                         <td>{{$teacher->name}}</td>
                         <td>{{$teacher->email}}</td>
                         @if(Auth::guard('admin')->check())

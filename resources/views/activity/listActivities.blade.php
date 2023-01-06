@@ -12,7 +12,7 @@
                 <div id="container-card-name">
                     <h3>{{$activity->name}}</h3>
                 </div>
-                <div >
+                <div>
                     <div class="card-body">
                         <p class="card-date">Criado em: {{($activity->created_at)->format('d/m/Y')}}</p>
                         <p class="card-teacher">Professor: {{$activity->teacher()->get()->first()->name}}</p>
@@ -79,9 +79,7 @@
                                 <a href="/home/activity/{{$activity->id}}" class="btn btn-primary">Saber Mais</a>
                             </div>
                         @else
-
                         @endif
-
                     </div>
                 </div>
             </div>

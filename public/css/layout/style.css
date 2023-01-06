@@ -103,10 +103,11 @@ li .before::before{
     position: relative;
 }
 #container-home-info{
-    justify-content: space-between;
+    justify-content: space-around;
     margin-top: 30px;
     font-family: 'Roboto', sans-serif;
     padding: 20px;
+    min-width: 100%;
 }
 
 #container-home-info #container-info{
@@ -114,7 +115,6 @@ li .before::before{
     flex-direction: column;
     gap: 50px;
     padding: 35px;
-    transform: translateY(-20%);
 }
 #container-home-info #container-info h1{
     font-weight: bold;
@@ -132,7 +132,7 @@ li .before::before{
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 300px;
+    width: calc(100%/5);
     transform: translateY(-20%);
 }
 #container-dash-img{
@@ -144,36 +144,50 @@ li .before::before{
 
 /* Home - sessão dos cards */
 #container-cards{
-    position: relative;
+    justify-content: center;
+    justify-content: center;
+    align-items: center;
     flex-direction: column;
-    gap: calc(100%/6);
     background-color: #F5F5F5;
     max-width: 100vw;
     height: 100vh;
     padding: 100px;
+    position: relative;
 }
-#container-cards .cards{
+#container-cards .container-card{
+    height: 100%;
+    min-width: 100vw;
+    padding: 20px;
+    position: relative;
+    /* background-color: red; */
+}
+#container-cards .container-card .cards{
     justify-content: center;
     align-items: center;
-    gap: 30px ;
+    gap: 30px;
     background-color: white;
-    max-width: 100vw;
+    max-width: calc(100vw/3);
     height: 200px;
-    font-size: 1.1em;
-    font-family: 'Roboto', sans-serif;
-    font-weight: bold;
+    font-size: 1.3rem;
+    font-family: 'Lato', sans-serif;
+    letter-spacing: 1px;
+    /* font-weight: bold; */
     padding: 20px 50px;
     border-radius: 20px;
-    box-shadow: 1px 1px 10px gray;
+    box-shadow: 0px 0px 15px 10px rgb(245, 245, 245);
 }
-#container-cards .cards:nth-child(1){
-    transform: translateX(10%);
+#container-cards #card-left{
     width: calc(100%/2.4);
+    margin-left: 100px;
 }
-#container-cards .cards:nth-child(2){
-    transform: translateX(125%);
+#container-cards #card-right{
+    position: absolute;
+    right: 0;
     width: calc(100%/2.4);
+    margin-right: 50px;
+    /* background-color: red; */
 }
+
 /* Footer */
 footer{
     background-color: #EFEFEF;
@@ -249,6 +263,7 @@ footer div div img{
     flex-direction: column;
     gap: 30px;
     font-family: 'Poppins', sans-serif;
+    max-width: 100vw;
 }
 #container-user-add{
     width: 100%;
@@ -275,12 +290,17 @@ footer div div img{
 }
 
 #container-table{
-    box-shadow: 1px 0 5px gray;
+    box-shadow: 0px 0px 15px 10px rgb(245, 245, 245);
     border: none;
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 20px 0;
     border-radius: 20px;
+    min-width: calc(100vw/2);
+}
+.table{
+    min-width: calc(100vw/2);
 }
 #edit-btn-show{
     color: black;
@@ -317,7 +337,7 @@ footer div div img{
 #errorCad{
     width: 100%;
     height: 50px;
-    box-shadow: 1px 0 5px gray;
+    box-shadow: 0px 0px 15px 10px rgb(245, 245, 245);
     border: none;
     display: flex;
     justify-content: center;
@@ -329,12 +349,18 @@ footer div div img{
 /* Exibindo atividades */
 .container-center{
     display: flex;
-    align-items: center;
-    justify-content: center;
+    justify-content: space-around; 
     height: 80vh;
     width: 100%;
     font-size: 1.3em;
-
+    position: relative;
+}
+#container-dados{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 100%;
+    gap: 50px;
 }
 .hiper-message-name{
     font-size: 1.6em;
@@ -390,7 +416,12 @@ footer div div img{
     border-color: #5C5C5C;
     color: rgb(59, 59, 59);
 }
-
+.title-type-user{
+    font-size: 1.2rem;
+    font-weight: bold !important;
+    letter-spacing: 2px;
+    font-family: 'Poppins', sans-serif;
+}
 /* Listando atividades */
 
 #activity-container{
@@ -399,7 +430,7 @@ footer div div img{
     flex-direction: column;
     gap: 50px;
 }
-#activity-container h1{
+#cards-container h1{
     font-family: 'Lato', sans-serif;
     overflow-y: hidden;
     margin-left: 2%;
@@ -421,16 +452,19 @@ footer div div img{
     background-color: black;
 }
 #cards-container{
-    padding: 5px 20px;
+    padding: 20px;
     gap: 30px 50px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
 }
 #cards-container .card{
+    border: none;
     padding: 10px 30px;
     border-radius: 20px;
-    box-shadow: 1px 0 5px gray;
+    box-shadow: 0px 0px 15px 10px rgb(243, 237, 237);
+    max-width: 350px;
+    min-width: 300px;
 }
 .card-body{
     padding: 0;
