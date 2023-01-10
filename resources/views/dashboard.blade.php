@@ -3,7 +3,7 @@
 @section('content')
 
 <div id="container-home" style="overflow-y: hidden">
-    <div class="container d-flex" id="container-home-info">
+    <div class="container d-flex" id="container-dash-info">
         <div id="container-info" style="margin-top: 200px;">
             <div data-aos="fade-right" data-aos-duration="1000">
                 <div class="user">

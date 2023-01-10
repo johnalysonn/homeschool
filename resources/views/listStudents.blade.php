@@ -51,9 +51,6 @@
             </tbody>
         </table>
     </div>
-    {{-- <div>
-        {{$students->links()}}
-    </div> --}}
     @else
         <div id="errorCad">
             <p>Não há nenhum aluno cadastrado!</p>
@@ -69,5 +66,5 @@
     </div>
     @endif
 </div>
-    
+
 @endsection
