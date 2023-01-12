@@ -46,8 +46,7 @@ class ResponseController extends Controller
             $act_response = new Activity_Response();
             $act_response->activity_id = $id_activity -> id;
             $act_response->student_id = $user_student->id;
-            $act_response->filepath = $file->getClientOriginalName();
-            $file->store('responses/'.$id_activity->id);
+            $act_response->filepath = $file->store('responses/'.$id_activity->id);
             if($request->coment){
                 $act_response ->description = $request->coment;
             }
@@ -77,9 +76,10 @@ class ResponseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Activity_Response $id_response, Discipline $discipline_model)
     {
-        //
+        $activity = $id_response->activity()->get()->first();
+        return view('activity/activity_response_edit', ['response' => $id_response, 'activity' => $activity, 'discipline_model' => $discipline_model]);
     }
 
     /**
@@ -89,9 +89,17 @@ class ResponseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, $id_response)
     {
-        //
+        $response = Activity_Response::findOrFail($id_response);
+        $id_activity = $response->activity()->get()->first();
+
+        if($request->coment){
+            $response ->description = $request->coment;
+        }
+        $response->update();
+
+        return redirect()->route('listActivities')->with('msg', 'Atividade editada com sucesso!');
     }
 
     /**
@@ -100,9 +108,10 @@ class ResponseController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Activity_Response $id_response)
     {
-        //
+        $id_response->delete();
+        return back()->with('msg', 'Resposta apagada com sucesso');
     }
     public function updateCheck(Activity_Response $id_response, $check_code){
         $response_update_check = $id_response->update([
@@ -119,8 +128,7 @@ class ResponseController extends Controller
     }
     public function download(Activity_Response $id_response){
         $id_activity = $id_response->activity()->get()->first()->id;
-        $file = Storage::allFiles('responses/'.$id_activity)[$id_response->id-1];
-        $part_filename = explode("/", $file);
+        $part_filename = explode("/", $id_response->filepath);
         $file_name =  $part_filename[count($part_filename)-1];
         return Storage::download('responses/'.$id_activity.'/'.$file_name);
     }

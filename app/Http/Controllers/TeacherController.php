@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Activity;
+use App\Models\Activity_Response;
 use App\Models\Discipline;
 use App\Models\Student;
 use App\Models\Teacher;
@@ -161,6 +162,16 @@ class TeacherController extends Controller
         return view('activity/listActivities', ['all_activities' => $all_activities,  'discipline_model' => $discipline, 'teacher_model' => $teacher_model]);
     }
     public function showActivity(Activity $id_activity, Discipline $discipline){
+        if(Auth::guard('student')->check()==true){
+            $student = Auth::guard('student')->user();
+            $student_responses = $id_activity->activity_response()->where('student_id', $student->id)->get();
+
+            $user_teacher = $id_activity->teacher()->get()->first();
+            $teacher_id = $user_teacher -> id;
+            $activities = $user_teacher->activities()->get();
+            $responses = $id_activity->activity_response()->get();
+            return view('activity/showActivity', ['activity' => $id_activity, 'teacher' => $user_teacher, 'discipline_model' => $discipline, 'responses' => $responses, 'student_responses' => $student_responses]);
+        }
         $user_teacher = $id_activity->teacher()->get()->first();
         $teacher_id = $user_teacher -> id;
         $activities = $user_teacher->activities()->get();

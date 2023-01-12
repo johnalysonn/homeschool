@@ -63,6 +63,10 @@ Route::post('/home/activity/response/store/{id_activity}', [ResponseController::
 Route::get('/home/response/status/{id_response}/{check_code}', [ResponseController::class, 'updateCheck'])->name('updateCheck');
 Route::get('/home/response/download/{id_response}', [ResponseController::class, 'download'])->name('download');
 Route::post('/home/response/note/{id_response}', [ResponseController::class, 'addNote'])->name('addNote');
+Route::get('/home/response/edit/{id_response}', [ResponseController::class, 'edit'])->name('editResponse');
+Route::put('/home/response/update/{id_response}', [ResponseController::class, 'update'])->name('updateResponse');
+Route::delete('/home/response/delete/{id_response}', [ResponseController::class, 'destroy'])->name('deleteResponse');
+
 
 
 
