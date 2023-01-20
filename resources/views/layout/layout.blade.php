@@ -18,8 +18,14 @@
     <link rel="stylesheet" href="{{asset('css/forms/activity.css')}}">
     <title>@yield('title')</title>
 </head>
-<body>
-    <header>
+<body onload="Loading()">
+    <div id="container-preloader">
+        <div>
+            <img src="/img/loading.gif" alt="Loading">
+        </div>
+    </div>
+    <div id="container-main-body">
+        <header>
             <nav class="navbar navbar-expand-lg navbar-light">
                 <div class="collapse navbar-collapse" id="navbar">
                     <a href="/" class="navbar-brand">
@@ -156,6 +162,7 @@
                 </div>
             </div>
         </footer>
+    </div>
 
     <!-- <script src="https://cdn.ckeditor.com/ckeditor5/35.3.0/classic/ckeditor.js"></script> -->
     <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
@@ -173,13 +180,19 @@
             CKEDITOR.replace( 'description', {
                 removePlugins: 'image',
             });
-    </script>
-    <script>
-        $(document).ready( function () {
+
+            $(document).ready( function () {
             $('.table').DataTable({
                 "dom": 'frtip'
             });
         });
+        function Loading(){
+            let container = document.querySelector('#container-main-body');
+            let preloader = document.querySelector('#container-preloader');
+
+            container.style.display = "block";
+            preloader.style.display = "none";
+        }
     </script>
 </body>
 </html>

@@ -161,6 +161,7 @@ class TeacherController extends Controller
 
         return view('activity/listActivities', ['all_activities' => $all_activities,  'discipline_model' => $discipline, 'teacher_model' => $teacher_model]);
     }
+
     public function showActivity(Activity $id_activity, Discipline $discipline){
         if(Auth::guard('student')->check()==true){
             $student = Auth::guard('student')->user();
@@ -178,6 +179,7 @@ class TeacherController extends Controller
         $responses = $id_activity->activity_response()->get();
         return view('activity/showActivity', ['activity' => $id_activity, 'teacher' => $user_teacher, 'discipline_model' => $discipline, 'responses' => $responses]);
     }
+
     public function editActivity(Activity $id_activity, Discipline $discipline_model){
         $disciplines = Discipline::all();
         return view('activity/editActivity', ['activity' => $id_activity, 'discipline_model' => $discipline_model, 'disciplines' => $disciplines]);

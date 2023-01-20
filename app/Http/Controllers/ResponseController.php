@@ -133,7 +133,6 @@ class ResponseController extends Controller
         return Storage::download('responses/'.$id_activity.'/'.$file_name);
     }
     public function addNote(Activity_Response $id_response, Request $request){
-        // dd($request->all());
         if($request->note){
             $id_response -> note = $request->note;
 

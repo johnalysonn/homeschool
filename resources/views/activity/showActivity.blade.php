@@ -110,7 +110,7 @@
                             </p>
                             <p>
                                 @if ($student_response->check===0)
-                                    Visto
+                                    Não corrigido
                                 @else
                                     <i class="fa-solid fa-check" style="color: green;"></i>
                                 @endif

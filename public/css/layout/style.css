@@ -713,4 +713,15 @@ footer div div img{
     border-color: rgb(170, 16, 16);
     color: rgb(155, 28, 28);
 }
+#container-preloader{
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    /* background-color: #F5F5F5; */
+}
+#container-main-body{
+    display: none;
+}
 
