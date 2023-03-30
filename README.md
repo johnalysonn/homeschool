@@ -1,64 +1,72 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+<h1>HomeSchool</h1>
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+<p>Esse projeto foi pensado em ser feito com objetivos de aprendizagem. Durante um estágio supervisionado, fui direcionado a realizar o sistema básico que simula o EAD, mas com certa complexidade, foi com este primeiro projeto que tive as reais primeiras impressões com o FrameWork Laravel, na qual facilitou muitos processos importantes que levariam muito mais tempo se fosse feito com PHP puro. Para ter base das ações que eu iria realizar, foi feito um cenário fictício, em que uma pessoa, um professor, se viu na necessidade de um sistema para uma melhor performance e organizações de suas atividades postadas. </p>
 
-## About Laravel
+## Cenário
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+Sou professor e dou aulas de preparo para concursos públicos, com o início da pandemia
+precisei me adaptar com vídeo transferência para ministrar minhas aulas. 
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+Mas estou tendo problemas com a quantidade de atividades que tenho recebido pelo whatsapp,
+gostaria de tirar essa responsabilidades da minha rede pessoal.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+Gostaria de ter um sistema que eu pudesse lançar as atividades da semana e eles pudessem 
+enviar as respostas para que eu desse o visto, para que ao final do mês eu pudesse saber
+qual foi o desempenho de cada aluno nas minhas atividades.
 
-## Learning Laravel
+E quero também que o sistema esteja apto para que um dia mais professores possam ser registrados nele.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+Se possível gostaria que houvesse um editor de texto dentro do próprio sistema semelhante ao
+word em que eu possa formatar o texto e depois salvar essas informações como um documento.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+## Regras de negócio 
 
-## Laravel Sponsors
+* O professor quem registra novos alunos no sistema;
+* A conta dos aluno não pode ser excluída, ao invés disso ela será desativada;
+* Depois que o professor da o visto na atividade o aluno não poderá mais editar sua resposta;
+* Quando um professor remover uma atividade as respostas atreladas a ela também serão excluídas;
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+## Operações
 
-### Premium Partners
+#### ALUNO 
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+	> CRUD resposta da atividade;
+	> Visualizar detalhes da conta;
 
-## Contributing
+#### PROFESSOR
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+	> Visualizar detalhes da conta;
+	> Atualizar detalhes da conta;
+	> CRUD disciplina;
+	> CRUD atividade;
+	> CRUD aluno;
+    
+## Diagrama 
 
-## Code of Conduct
+![unnamed](https://user-images.githubusercontent.com/104682781/228869733-ae77ae46-57fd-406f-818b-8ef2ccc968d2.jpg)
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+<hr>
 
-## Security Vulnerabilities
+## Algumas telas prontas do sistema
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+> Telas padrões
+![image](https://user-images.githubusercontent.com/104682781/228870887-32138095-66b4-4a8b-8401-849d769f0a72.png)
+![image](https://user-images.githubusercontent.com/104682781/228871095-993fbac2-bc73-4e1e-8fb6-70d0ce757c6e.png)
 
-## License
+> Logado como professor
+![image](https://user-images.githubusercontent.com/104682781/228871364-9b5fa6f2-9a8a-4e36-ba19-455f63bc2a65.png)
+![image](https://user-images.githubusercontent.com/104682781/228873144-424b3397-bc7e-4308-9879-9f0c860cc589.png)
+![image](https://user-images.githubusercontent.com/104682781/228873258-6e8da2f8-9884-4cca-9789-ecd85421c402.png)
+![image](https://user-images.githubusercontent.com/104682781/228873598-06b69500-a973-4591-9249-e10a1bc39944.png)
+![Atividades - Google Chrome 2023-03-30 11-46-04](https://user-images.githubusercontent.com/104682781/228875917-291789fd-b5f0-4145-a56d-e97a6cfe8afc.gif)
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+> Logado como aluno
+![image](https://user-images.githubusercontent.com/104682781/228876549-b70702a0-0826-481d-a9af-91874d06965e.png)
+![Listagem de Atividades - Google Chrome 2023-03-30 11-51-02](https://user-images.githubusercontent.com/104682781/228876431-dace5fec-5a25-4038-8c46-829c5d7a3b5f.gif)
+![Atividades - Google Chrome 2023-03-30 11-52-43](https://user-images.githubusercontent.com/104682781/228877145-9f60ef59-b367-4d2e-afc2-4140ba5fb1ec.gif)
+
+
+
+
+
+    
