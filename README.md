@@ -2,6 +2,12 @@
 
 <p>Esse projeto foi pensado em ser feito com objetivos de aprendizagem. Durante um estágio supervisionado, fui direcionado a realizar o sistema básico que simula o EAD, mas com certa complexidade, foi com este primeiro projeto que tive as reais primeiras impressões com o FrameWork Laravel, na qual facilitou muitos processos importantes que levariam muito mais tempo se fosse feito com PHP puro. Para ter base das ações que eu iria realizar, foi feito um cenário fictício, em que uma pessoa, um professor, se viu na necessidade de um sistema para uma melhor performance e organizações de suas atividades postadas. </p>
 
+<p>Nesta aplicação, há muitas funcionalidades e especificidades do FrameWork Laravel, é possível realizar a autenticação de três formas, como administrador, professor e aluno, utilizando de uma multipliautenticação. Armazenamento de arquivos locais, para envios de atividades, havendo portanto a função de download, para desta forma o professor conseguir avalizar e aderir a nota necessária para o aluno correspondente.</p>
+
+Para melhor funcionalidade, foram utilizada algumas bibliotecas, sendo elas:
+* Editor de Texto (CkEditor): <a href="https://ckeditor.com/ckeditor-5/download/">Acesse</a>
+* DataTable: <a href="https://datatables.net/">Acesse</a>
+
 ## Cenário
 
 Sou professor e dou aulas de preparo para concursos públicos, com o início da pandemia
